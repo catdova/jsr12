@@ -13,13 +13,17 @@ $(document).ready(function(){
 		success: function(result){
 			console.log(result.data.children[0].data.title);
 
-				 for (i = 0; i < result.data.children.length; i++) {
-   				 var postTitle = result.data.children[i].data.title;
-   				 var postScore = result.data.children[i].data.score;
-   				 var postThumbnail = result.data.children[i].data.thumbnail;
+			for (i = 0; i < result.data.children.length; i++) {
+   				var postTitle = result.data.children[i].data.title;
+   				var postScore = result.data.children[i].data.score;
+   				var postThumbnail = result.data.children[i].data.thumbnail;
    				console.log(postTitle);
    				console.log(postScore);
    				console.log(postThumbnail);
+
+   				$('h3').append(postTitle);	
+
+
    				}
 
 		}
