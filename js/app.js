@@ -21,12 +21,18 @@ $(document).ready(function(){
    				console.log(postScore);
    				console.log(postThumbnail);
 
-   				$('h3').append(postTitle);	
+   				//$('h3').append(postTitle); this doesnt work -- adds all titles to every h3
+
+   				var newTitle = "<h3>" + postTitle + "</h3>"
+
+   				$('body').append(newTitle);
+
 
 
    				}
 
 		}
+
 	});
 
 
