@@ -17,9 +17,6 @@ $(document).ready(function(){
    				var postTitle = result.data.children[i].data.title;
    				var postScore = result.data.children[i].data.score;
    				var postThumbnail = result.data.children[i].data.thumbnail;
-   				console.log(postTitle);
-   				console.log(postScore);
-   				console.log(postThumbnail);
 
    				//$('h3').append(postTitle); this doesnt work -- adds all titles to every h3
 
