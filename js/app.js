@@ -51,8 +51,8 @@ $(document).ready(function(){
           popContent += '</div>';
           }
 
-          $('a').click(popUp(){
-
+          $( "a" ).click(function() {
+            popUp;
           });
 
    				}
