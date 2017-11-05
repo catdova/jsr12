@@ -14,19 +14,21 @@ $(document).ready(function(){
 			console.log(result.data.children[0].data.title);
       $('#main').html('');
 			for (i = 0; i < result.data.children.length; i++) {
+        //post variables//
    				var postTitle = result.data.children[i].data.title;
    				var postScore = result.data.children[i].data.score;
    				var postThumbnail = result.data.children[i].data.thumbnail;
+          var postUrl = "https://www.reddit.com" + result.data.children[i].data.permalink;
+          var postSubreddit = result.data.children[i].data.subreddit_name_prefixed;
 
-   				//$('h3').append(postTitle); this doesnt work -- adds all titles to every h3
-
+          //HTML Template//
           var newArticle = '<article class="article">';
           newArticle += '<section class="featuredImage">';
           newArticle += '<img src="' + postThumbnail + '" alt="" />';
           newArticle += '</section>';
           newArticle += '<section class="articleContent">';
-          newArticle += '<a href="#"><h3>' + postTitle + '</h3></a>';
-          newArticle += '<h6>Lifestyle</h6>';
+          newArticle += '<a href="' + postUrl +'"><h3>' + postTitle + '</h3></a>';
+          newArticle += '<h6>'+ postSubreddit +'</h6>';
           newArticle += '</section>';
           newArticle += '<section class="impressions">';
           newArticle += postScore;
@@ -44,22 +46,6 @@ $(document).ready(function(){
 		}
 
 	});
-
-
-/*<article class="article">
-            <section class="featuredImage">
-              <img src="images/article_placeholder_1.jpg" alt="" />
-            </section>
-            <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
-            </section>
-            <section class="impressions">
-              526
-            </section>
-            <div class="clearfix"></div>
-</article> */
-
 
 
 });
