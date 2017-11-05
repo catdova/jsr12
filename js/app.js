@@ -39,7 +39,21 @@ $(document).ready(function(){
 
    				$('#main').append(newArticle);
 
+          function popUp(){
+            event.preventDefault();
+            $('#popUp').removeClass('hidden');
 
+          var popContent = '<div id="popUp" class="loader hidden">';
+          popContent += '<a href="'+ +'" class="closePopUp">X</a>'
+          popContent += '<div class="container">';
+          popContent += '<h1>' + postTitle + '</h1>';
+          popContent += '<a href="'+ postUrl +'" class="popUpAction" target="_blank">Read more from source</a>'
+          popContent += '</div>';
+          }
+
+          $('a').click(popUp(){
+
+          });
 
    				}
 
