@@ -27,7 +27,7 @@ $(document).ready(function(){
           newArticle += '<img src="' + postThumbnail + '" alt="" />';
           newArticle += '</section>';
           newArticle += '<section class="articleContent">';
-          newArticle += '<a href="' + postUrl +'"><h3>' + postTitle + '</h3></a>';
+          newArticle += '<a class="redditpost href="' + postUrl +'"><h3>' + postTitle + '</h3></a>';
           newArticle += '<h6>'+ postSubreddit +'</h6>';
           newArticle += '</section>';
           newArticle += '<section class="impressions">';
@@ -39,27 +39,30 @@ $(document).ready(function(){
 
    				$('#main').append(newArticle);
 
-          function popUp(){
+          
+
+
+   			}
+      $( "article").click(function() {
             event.preventDefault();
+            var popUpTitle = $(this).children('.articleContent').children('a').children('h3').text();
+            var popUpImage = "<img src='" + $(this).children('.featuredImage').children('img').attr('src') + "' />";            
+            console.log(popUpImage);
             $('#popUp').removeClass('hidden');
-
-          var popContent = '<div id="popUp" class="loader hidden">';
-          popContent += '<a href="'+ +'" class="closePopUp">X</a>'
-          popContent += '<div class="container">';
-          popContent += '<h1>' + postTitle + '</h1>';
-          popContent += '<a href="'+ postUrl +'" class="popUpAction" target="_blank">Read more from source</a>'
-          popContent += '</div>';
-          }
-
-          $( "a" ).click(function() {
-            popUp;
-          });
-
-   				}
+            $('#popUp h1').html(popUpTitle);
+            $('#popUp p').html(popUpImage);
+            $('#popUp .container').show();
+      });
 
 		}
 
 	});
+
+  $('.closePopUp').click(function(){
+    event.preventDefault();
+    console.log('clicked');
+    $('#popUp').addClass('hidden');
+  });
 
 
 });
