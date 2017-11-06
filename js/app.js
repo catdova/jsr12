@@ -1,10 +1,3 @@
-/*
-  Please add all Javascript code to this file.
-
-
-
-
-*/
 $(document).ready(function(){
 
 	console.log("starting AJAX");
@@ -21,13 +14,14 @@ $(document).ready(function(){
           var postUrl = "https://www.reddit.com" + result.data.children[i].data.permalink;
           var postSubreddit = result.data.children[i].data.subreddit_name_prefixed;
 
+
           //HTML Template//
           var newArticle = '<article class="article">';
           newArticle += '<section class="featuredImage">';
           newArticle += '<img src="' + postThumbnail + '" alt="" />';
           newArticle += '</section>';
           newArticle += '<section class="articleContent">';
-          newArticle += '<a class="redditpost href="' + postUrl +'"><h3>' + postTitle + '</h3></a>';
+          newArticle += '<a href="' + postUrl +'"><h3>' + postTitle + '</h3></a>';
           newArticle += '<h6>'+ postSubreddit +'</h6>';
           newArticle += '</section>';
           newArticle += '<section class="impressions">';
@@ -45,13 +39,15 @@ $(document).ready(function(){
    			}
       $( "article").click(function() {
             event.preventDefault();
-            var popUpTitle = $(this).children('.articleContent').children('a').children('h3').text();
-            var popUpImage = "<img src='" + $(this).children('.featuredImage').children('img').attr('src') + "' />";            
-            console.log(popUpImage);
+            var popUpTitle = $(this).children('.articleContent').children('a').text();
+            var popUpLink = $(this).children('.articleContent').children('a').attr('href');
+            var popUpImage = "<img src='" + $(this).children('.featuredImage').children('img').attr('src') + "' />";
             $('#popUp').removeClass('hidden');
             $('#popUp h1').html(popUpTitle);
             $('#popUp p').html(popUpImage);
+            $('#popUp a').attr("href", popUpLink);
             $('#popUp .container').show();
+            $('#popUp').css('background-image', 'none');
       });
 
 		}
